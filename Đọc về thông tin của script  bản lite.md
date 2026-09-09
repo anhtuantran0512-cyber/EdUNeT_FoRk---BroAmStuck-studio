@@ -34,7 +34,8 @@ Hi toi là T đây là 1 dự án nhỏ của tôi :V
   (Finite State Machine - FSM) khép kín, hoạt động hoàn toàn tự trị mà không can thiệp thô bạo
   vào server ( vi phạm nếu cố tình khai thác thêm )
   • Thiết kế : Thiết kế này broamstuck lấy ý tưởng từ hyperland và dymamic island , hex phối màu gồm aura 
-- **Thông tin bản pre :** 
+- **Thông tin bản pre :**
++ Giao diện riêng có hình nền riêng , hỗ trợ các tác vụ khác , có thể tùy chỉnh, setting, mã nguồn mở
 + Tích hợp api toàn bộ cho các loại ai khác nhau , api không bị delay hay nỗi do spam quota , nâng giới hạn swap lên vô hạn ( lite chỉ có hỗ trợ gemini và cơ bản)
 + Thiết kế riêng về chuỗi tự động hóa , tự train ai , machine learing giả lập học sinh học hành vi thao tác 
 + Không giới hạn api và 25+ tính năng riêng  ,............... ( ib để biết thêm về bản đại cập nhật pre fork )

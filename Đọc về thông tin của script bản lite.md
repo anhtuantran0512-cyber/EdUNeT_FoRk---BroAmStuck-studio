@@ -1,5 +1,4 @@
 # EdUNeT_FoRk---BroAmStuck-studio
-# EdUNeT_FoRk---BroAmStuck-studio
 
 Hi toi là T đây là 1 dự án nhỏ của tôi :V 
 - Thật ra tôi không có ý tưởng nên thử làm 1 client riêng cho wed edunext thôi mục đích tạo tiền đề cho dự án lớn thôi :))

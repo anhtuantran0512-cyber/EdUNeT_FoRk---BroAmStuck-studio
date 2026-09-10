@@ -10,7 +10,8 @@ Tích hợp api :
 + Create a api key ( tạo api key ) 
 [Nên tạo tầm 6 key api để đảm bảo chất lượng và độ ổn định của script] ( tất nhiên cái gì ngon không phải là miễn phí và dễ xài ) 
 [ có thể dùng acc clone để tạo nhiều api , bản lite tối đa 10 api ] ( bản pre dành riêng cho developer ) 
-- Nếu là tính năng bridge thì mở 1 tab gemini bên cạnh , tạo 2 window rồi bât on cho nó chạy
+- Nếu là tính năng bridge thì mở 1 tab gemini bên cạnh , tạo 2 window rồi bật on cho nó chạybật
+( Nên sử dụng api , tốt hơn bản bridge ( bridge đang working on update ) 
 
 Góc hỏi đáp :
 - Vì sao script đang giải bài lại báo lỗi không giải tiếp được ?
@@ -22,5 +23,10 @@ Góc hỏi đáp :
   - bật developer mode ( chế độ nhà phát triển trong extension ) ( hỏi chat gpt đi)
   - chrome://extensions/ ( brave , firefox , edge cứ thể mà triển)
 
+Cảm giác giải bài tập tầm 1 -2 bài là cạn token? chờ cooldown api? 
++ Chính xác đó là lý do vì sao 10 api được ra đời ( nên sử dụng 10 api thế nào cho hợp lý?)
++ Nếu api tạo ra cùng 1 acc thì chỉ cần 1 api hết thì acc đó sẽ hết, api đến từ acc đó sẽ hết và sẽ phải chờ cooldown nên nhiều api đến từ acc khác nhau càng tốt đảm bảo thời gian sử dụng lâu hơn ( đương nhiên về sau có gemini wed, thời gian hỏi bên wed sẽ lâu hơn , nma đang bypass bên  gemini :V)
++ Nên tạo api theo công thức 4-4-2 ( 4 api acc chính - 4 api acc phụ 2 api acc phụ)
+  
  ** Đừng bao giờ có ý tưởng chỉnh sửa code hoặc là ngược lại ** 
  + Có lỗi gì ,feedback bên trang cá nhân 

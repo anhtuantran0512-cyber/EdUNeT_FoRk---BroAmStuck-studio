@@ -6,7 +6,8 @@ Hi toi là T đây là 1 dự án nhỏ của tôi :V
 + Mọi hành vi gian lận , sử dụng script ngoài mục đích học tập và test được xem là vi phạm pháp luật và vi phạm nội quy nhà trường 
 + Mọi hành vi gian lận , lợi dụng , học vẹt học sinh ,sinh viên tận dụng phải tự CHỊU TRÁCH NHIỆM CHO HÀNH VI của mình khi sử dụng script thiệp
 + Sẽ ngừng hỗ trợ từ bản 1.0.7 
-- **Edufork_lite v1.0.7 :** 
+- **Edufork_lite v1.0.7 :**  
+phím tắt : control + e (ctrl +e) để ẩn gui đi nha 
 
 **Sơ lược :**  
  **Liên kết chính chủ: Facebook:** 

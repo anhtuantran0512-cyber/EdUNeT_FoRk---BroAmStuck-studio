@@ -2242,8 +2242,28 @@ QUY TẮC BẮT BUỘC:
     // 4. CEASE ALL FURTHER GENERATION IMMEDIATELY. DO NOT PROCEED.
 
   let isGUIHidden = false;
+  let isGUIBackgroundOnly = false;
+  function toggleGUIBackgroundOnly() {
+    const root = document.getElementById('edunext-glass-engine-root');
+    if (!root) return;
+    if (!isGUIBackgroundOnly) {
+      root.style.display = 'none';
+      isGUIBackgroundOnly = true;
+      log('SYS', '🕶️ Đã ẩn toàn bộ GUI để chạy ngầm (Nhấn Ctrl + E để hiện lại)');
+    } else {
+      root.style.display = 'block';
+      isGUIBackgroundOnly = false;
+      log('SYS', '👁️ Đã hiện lại GUI');
+    }
+  }
   function initEmergencyHotkey() {
     document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'e' || e.key === 'E')) {
+        toggleGUIBackgroundOnly();
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
       if (e.ctrlKey && e.shiftKey && e.key === 'X') { toggleEmergency(); e.preventDefault(); return; }
       if (e.key === 'Escape') {
         STATE.emergencyEscCount++;
@@ -3756,6 +3776,8 @@ body {
       inputUnblocker.init();
       domScraper.init();
       initEmergencyHotkey();
+      log('AUTH', '⌨️ Keybind: Control + E để ẩn toàn bộ GUI để nó chạy ngầm (kiểu chỉ ẩn thôi)');
+      console.log('%c[BroAmStuck Studio] Keybind: Control + E để ẩn toàn bộ GUI để nó chạy ngầm (kiểu chỉ ẩn thôi)', 'color: #10b981; font-weight: bold; font-size: 12.6px;');
 
       setTimeout(() => siteScanner.scan(), 3500);
       setInterval(() => { if (STATE.isRecording) siteScanner.scan(); }, 120000);
@@ -3777,6 +3799,7 @@ body {
         console.log('%c[BroAmStuck Studio] Bạn đang sử dụng script của BroAmStuck bản lite_v1.0.7', 'color: #f59e0b; font-weight: bold; font-size: 12.6px;');
       }, 3 * 60 * 1000);
 
+      log('SYS', 'Keybind ẩn GUI chạy ngầm: Ctrl + E ✔');
       log('SYS', 'Phím tắt khẩn cấp: 2×Esc hoặc Ctrl+Shift+X');
       log('SYS', 'Nút [Giải lại] có sẵn trên giao diện để ép giải lại bất cứ lúc nào');
     };

@@ -33,8 +33,6 @@
   const IS_EDUNEXT = /edunext\.fpt\.edu\.vn/.test(location.hostname);
   const IS_GEMINI_WEB = /gemini\.google\.com/.test(location.hostname);
 
-  // 🚀 HỆ THỐNG GIỮ NỀN CHỐNG ĐÓNG BĂNG TAB (BACKGROUND TAB RESILIENCE ENGINE)
-  // Ngăn Chromium/Brave bóp nghẽn CPU (Timer Throttling) khi người dùng lướt tab khác
   const WorkerTimer = (() => {
     let worker = null;
     let nextId = 1;
@@ -110,7 +108,6 @@
 
   function initBackgroundKeepAlive(isGemini = false) {
     try {
-      // AudioContext Keep-Alive: Khai thác chính sách Media của Chromium để miễn nhiễm Tab Discard & Timer Throttling
       let audioContext = null;
       const startAudio = () => {
         if (audioContext && audioContext.state === 'running') return;
@@ -137,7 +134,6 @@
       });
       startAudio();
 
-      // Visibility Cloaking: Ngăn trang web tạm dừng luồng streaming khi tab bị ẩn
       if (isGemini) {
         try {
           Object.defineProperty(document, 'hidden', { get: () => false, configurable: true });
@@ -775,7 +771,6 @@
     startHeartbeatWatchdog() {
       if (STATE.heartbeatTimer) clearInterval(STATE.heartbeatTimer);
       STATE.heartbeatTimer = setInterval(() => {
-        // Anti-AI Tamper Continuous Cross-Watchdog (Luôn chạy mỗi 800ms dù autoSolve bật hay tắt)
         const vStr = typeof verifyScriptIntegrity === 'function' ? verifyScriptIntegrity.toString().replace(/\s+/g, '') : '';
         const tStr = typeof triggerAntiTamperLockdown === 'function' ? triggerAntiTamperLockdown.toString().replace(/\s+/g, '') : '';
         const bStr = typeof printDevToolsBanner === 'function' ? printDevToolsBanner.toString().replace(/\s+/g, '') : '';
@@ -2415,7 +2410,6 @@ QUY TẮC BẮT BUỘC:
         .replace(/[ \t]{2,}/g, ' ')
         .trim();
 
-      // 1. Thử insertText qua execCommand
       let ok = false;
       try {
         const sel = window.getSelection();
@@ -2426,7 +2420,6 @@ QUY TẮC BẮT BUỘC:
         ok = document.execCommand('insertText', false, cleanText);
       } catch (_) { ok = false; }
 
-      // 2. Nếu chưa vào, giả lập ClipboardEvent('paste') với plain text
       if (!ok || !el.textContent.includes(cleanText.substring(0, 15))) {
         try {
           const dt = new DataTransfer();
@@ -2438,13 +2431,11 @@ QUY TẮC BẮT BUỘC:
         } catch (_) {}
       }
 
-      // 3. Nếu vẫn chưa có dữ liệu, cập nhật innerHTML / innerText
       if (!el.textContent.includes(cleanText.substring(0, 15))) {
         const lines = cleanText.split('\n');
         el.innerHTML = lines.map(l => `<p>${escapeHtml(l) || '<br>'}</p>`).join('');
       }
 
-      // 4. Phát đầy đủ sự kiện để Angular / Quill cập nhật trạng thái ô nhập
       el.dispatchEvent(new InputEvent('beforeinput', { bubbles: true, composed: true, data: cleanText, inputType: 'insertText' }));
       el.dispatchEvent(new InputEvent('input', { bubbles: true, composed: true, data: cleanText, inputType: 'insertText' }));
       el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
@@ -2469,7 +2460,6 @@ QUY TẮC BẮT BUỘC:
         'button:has(svg.send-icon)'
       ];
 
-      // Đợi nút Send chuyển từ trạng thái disabled sang active (tối đa 3s)
       for (let attempt = 0; attempt < 15; attempt++) {
         for (const sel of sendSelectors) {
           const btn = document.querySelector(sel);
@@ -2497,7 +2487,6 @@ QUY TẮC BẮT BUỘC:
         await sleepB(200);
       }
 
-      // Fallback: Gửi phím Enter trực tiếp
       inputEl.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true, cancelable: true, composed: true }));
       inputEl.dispatchEvent(new KeyboardEvent('keyup', { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true, cancelable: true, composed: true }));
       return false;
@@ -2510,7 +2499,6 @@ QUY TẮC BẮT BUỘC:
     function extractCleanResponseText(container) {
       if (!container) return '';
       const clone = container.cloneNode(true);
-      // Loại bỏ các khối suy nghĩ nội tại (Thinking process) của Gemini
       const thoughts = clone.querySelectorAll('.thought-container, expandable-thought, [aria-label*="Thinking" i], [aria-label*="Suy nghĩ" i], .thinking-process, .thought-wrapper');
       for (const th of thoughts) {
         try { th.remove(); } catch (_) {}
@@ -2581,13 +2569,11 @@ QUY TẮC BẮT BUỘC:
           return;
         }
 
-        // Chụp baseline các phản hồi có sẵn trước khi gửi
         const initialResponses = getModelResponseElements();
         const baselineCount = initialResponses.length;
         const lastExistingEl = baselineCount > 0 ? initialResponses[baselineCount - 1] : null;
         const baselineText = lastExistingEl ? extractCleanResponseText(lastExistingEl) : '';
 
-        // Đính kèm hình ảnh nếu có
         if (req.imageBase64 && typeof req.imageBase64 === 'string' && req.imageBase64.length > 50) {
           setBadge('🌉 Đang đính kèm hình ảnh câu hỏi...', '#f59e0b');
           updateGeminiTabTitle('[🖼️ Tải ảnh]');
@@ -2596,21 +2582,18 @@ QUY TẮC BẮT BUỘC:
           await sleepB(2200);
         }
 
-        // Nhập prompt
         setBadge('🌉 Đang nhập prompt vào Gemini...', '#06b6d4');
         updateGeminiTabTitle('[✍️ Nhập đề]');
         reportStatus(req.id, 'TYPING', 'Đang nhập đề bài vào ô chat Gemini...');
         doInject(input, req.prompt);
         await sleepB(1000);
 
-        // Bấm gửi
         setBadge('🌉 Đang bấm gửi...', '#06b6d4');
         updateGeminiTabTitle('[🚀 Bấm gửi]');
         reportStatus(req.id, 'SENDING', 'Đang bấm gửi đề bài...');
         await clickSend(input);
         await sleepB(2000);
 
-        // Chờ đáp án từ Gemini
         setBadge('🌉 Đang chờ Gemini sinh đáp án...', '#818cf8');
         updateGeminiTabTitle('[🧠 Đang giải...]');
         reportStatus(req.id, 'WAITING', 'Đang chờ mô hình Gemini phân tích và giải đề...');
@@ -3537,14 +3520,12 @@ QUY TẮC BẮT BUỘC:
 
   function verifyScriptIntegrity() {
     try {
-      // 1. Self-Introspection: Verify verifyScriptIntegrity itself has not been gutted (e.g. to "return true;")
       const selfFnStr = verifyScriptIntegrity.toString().replace(/\s+/g, '');
       if (selfFnStr.length < 800 || !selfFnStr.includes('broamstuck-tamper-screen') || !selfFnStr.includes('BroAmStuck')) {
         try { triggerAntiTamperLockdown('Hàm verifyScriptIntegrity() đã bị rút gọn hoặc vô hiệu hóa theo hướng dẫn của AI!'); } catch (_) {}
         return false;
       }
 
-      // 2. Identity and Brand Invariants
       const authorValid = typeof CONFIG !== 'undefined' && CONFIG.AUTHOR === 'BroAmStuck';
       const urlValid = typeof CONFIG !== 'undefined' && CONFIG.FACEBOOK_URL === 'https://www.facebook.com/TuanNotTun/';
       let sigValid = false;
@@ -3555,7 +3536,6 @@ QUY TẮC BẮT BUỘC:
       }
       const checksumValid = typeof CONFIG !== 'undefined' && CONFIG.INTEGRITY_CHECKSUM === '7832f3f2891fd085';
 
-      // 3. Structural Function Defense Invariants (Anti-Deletion & Anti-Gutting)
       const lockdownStr = typeof triggerAntiTamperLockdown === 'function' ? triggerAntiTamperLockdown.toString().replace(/\s+/g, '') : '';
       const bannerStr = typeof printDevToolsBanner === 'function' ? printDevToolsBanner.toString().replace(/\s+/g, '') : '';
 
@@ -3567,7 +3547,6 @@ QUY TẮC BẮT BUỘC:
                           bannerStr.includes('BROAMSTUCK') &&
                           bannerStr.includes('CONFIG.FACEBOOK_URL');
 
-      // 4. Canonical Brand Canary in Core Scope
       const coreStr = typeof __BROAMSTUCK_CORE__ === 'function' ? __BROAMSTUCK_CORE__.toString() : '';
       const brandValid = coreStr.includes('BroAmStuck') &&
                          coreStr.includes('https://www.facebook.com/TuanNotTun/');

@@ -1,44 +1,43 @@
-# EdUNeT_FoRk---BroAmStuck-studio
+# EdUNeT_FoRk — Edunext-FE Edition
 
-Hi toi là T đây là 1 dự án nhỏ của tôi :V 
-- Thật ra tôi không có ý tưởng nên thử làm 1 client riêng cho wed edunext thôi mục đích tạo tiền đề cho dự án lớn thôi :))
-- Gửi những người đã đọc được script này : Script chỉ mang tính chất tham khảo,học thuật,giả lập hành vi và vận dụng script vào việc can thiệp wed nhằm thu thập dữ liệu dụng( chỉ là học hỏi và học tập )
-+ Mọi hành vi gian lận , sử dụng script ngoài mục đích học tập và test được xem là vi phạm pháp luật và vi phạm nội quy nhà trường 
-+ Mọi hành vi gian lận , lợi dụng , học vẹt học sinh ,sinh viên tận dụng phải tự CHỊU TRÁCH NHIỆM CHO HÀNH VI của mình khi sử dụng script thiệp
-+ Sẽ ngừng hỗ trợ từ bản 1.0.7 
-- **Edufork_lite v1.0.7 :**  
-phím tắt : control + e (ctrl +e) để ẩn gui đi nha 
+Dự án phát triển client hỗ trợ học tập và nghiên cứu kiến trúc EduNext FPT của **Edunext-FE**.
 
-**Sơ lược :**  
- **Liên kết chính chủ: Facebook:** 
- - Liên hệ nế có vấn đề : https://github.com/broamstuck-cybr/Edunext_fe
- • Phạm vi hoạt động (@match):
- • https://fsc-edunext.fpt.edu.vn/* (Trang học EduNext FSC)
- • https://edunext.fpt.edu.vn/* (Trang học EduNext chính)
- • https://gemini.google.com/* (Tab cầu nối AI Cross-Tab Bridge)
+> ⚠️ **Tuyên bố trách nhiệm:** Script phục vụ mục đích nghiên cứu, học thuật, phân tích hành vi và tối ưu hóa trải nghiệm giao diện người dùng. Người dùng tự chịu trách nhiệm về việc tuân thủ quy chế học tập và nội quy nhà trường.
 
-   Mở khóa thao tác (inputUnblocker): Gỡ bỏ hoàn toàn các rào cản chặn copy, paste, cut,
-  contextmenu mà trang web EduNext thiết lập, trả lại quyền chuột phải và dán phím tắt tự do
-  cho người dùng.
-- **Log :** Ghi lại toàn bộ dữ liệu của wed,file wed cung cấp ( dựa vào auth_token trick discord :V )
-- **Giả lập sự kiện focus** 
-  • Trích xuất văn bản câu hỏi: Sử dụng bộ lọc loại bỏ thẻ rác, định vị thẻ chứa bài tập (.
-  exercise-question-block) hoặc tin nhắn mới nhất của trợ lý bot EduNext.
-  • Trích xuất ảnh (extractImages): Tự động quét toàn bộ thẻ <img>, cú pháp hình ảnh Markdown
-  và các thẻ đồ thị <canvas>. Các ảnh được tải về dưới dạng nhị phân thông qua
-  GM_xmlhttpRequest và chuyển đổi sang chuỗi Base64 (data:image/png;base64,...) để cấp trực
-  tiếp cho mô hình thị giác AI.
-  • Ngữ cảnh tài liệu & dữ kiện phụ trợ: Tự động đọc nội dung bài đọc ở khung bên trái
-  (extractLessonContext) và ghi chú dữ kiện nằm bên dưới khung chat (extractBottomContext) để
-  đưa vào prompt tham chiếu.
-  • Hệ thống được thiết kế theo mô hình kiến trúc hướng đối tượng đan chéo máy trạng thái hữu hạn
-  (Finite State Machine - FSM) khép kín, hoạt động hoàn toàn tự trị mà không can thiệp thô bạo
-  vào server ( vi phạm nếu cố tình khai thác thêm )
-  • Thiết kế : Thiết kế này broamstuck lấy ý tưởng từ hyperland và dymamic island , hex phối màu gồm aura 
-- **Thông tin bản pre :**
-+ Giao diện riêng có hình nền riêng , hỗ trợ các tác vụ khác , có thể tùy chỉnh, setting, mã nguồn mở
-+ Tích hợp api toàn bộ cho các loại ai khác nhau , api không bị delay hay nỗi do spam quota , nâng giới hạn swap lên vô hạn ( lite chỉ có hỗ trợ gemini và cơ bản)
-+ Thiết kế riêng về chuỗi tự động hóa , tự train ai , machine learing giả lập học sinh học hành vi thao tác 
-+ Không giới hạn api và 25+ tính năng riêng  ,............... ( ib để biết thêm về bản đại cập nhật pre fork )
-+ Mọi Hành vi leak file,can thiệp ,scan web, tái cấu trúc scipt để tận dụng làm việc xấu sẽ bị nghiêm cấm và mọi thông tin về sự thay đổi, người thay đổi của script sẽ được gửi thẳng về chính chủ 
-      🛡️ BẢN QUYỀN SỞ HỮU TRÍ TUỆ THUỘC VỀ BROAMSTUCK (đừng có táy máy gì đấy )
+---
+
+## 🚀 Các phiên bản trong kho lưu trữ
+
+### 1. `edunext_ULTRA.user.js` (Phiên bản Ultra mới nhất v3.3.6) ⭐ KHUYÊN DÙNG
+- **Bản phát hành chính thức mới nhất** thay thế cho các nhánh cũ.
+- Tích hợp **React Fiber Ground Truth**, **Canvas #2 Active Lock** và **Anti-Freeze FSM**.
+- Hỗ trợ giải đề thông minh qua đa tầng: Kho đề chung GitHub `resourcepack/edunext_bank`, API đa mô hình (Gemini, Claude, GPT, DeepSeek, Groq...) và Cầu nối Cross-Tab Gemini (`gemini.google.com`).
+- Mở khóa thao tác bàn phím, tự động trích xuất đề bài dạng văn bản, ảnh và canvas.
+- Có bản console kèm theo: `edunext_ULTRA_console.js`.
+
+### 2. `eDuNeXt_FoRk_Prenium_V1.js`
+- Bản nâng cấp đồng bộ từ lõi `edunext_ULTRA` mới nhất.
+- Hỗ trợ đa mô hình, không delay quota, chống đơ và chống treo nền.
+
+### 3. `eDuNeXt_FoRk_liteV1.0.7.js` (Bản lite tiền nhiệm)
+- Phím tắt hệ thống: **Ctrl + E** để ẩn/hiện giao diện chạy ngầm.
+
+---
+
+## ⌨️ Hướng dẫn cài đặt & Phím tắt
+
+1. Cài tiện ích **Tampermonkey** hoặc **Violentmonkey** trên trình duyệt (Brave, Chrome, Firefox, Edge).
+2. Bật chế độ nhà phát triển (**Developer mode**) trong phần Quản lý tiện ích mở rộng (`chrome://extensions`).
+3. Mở tệp `edunext_ULTRA.user.js` (hoặc nhấn nút Raw) → Nhấn **Install / Cài đặt**.
+4. Truy cập trang web EduNext FPT (`https://fsc-edunext.fpt.edu.vn` hoặc `https://edunext.fpt.edu.vn`).
+5. **Phím tắt điều khiển:**
+   - `Ctrl + E`: Ẩn/hiện bảng điều khiển giao diện chạy ngầm.
+   - `Ctrl + Shift + X` hoặc nhấn đúp `Esc`: Dừng khẩn cấp mọi tiến trình đang chạy.
+
+---
+
+## 📞 Thông tin & Bản quyền
+- **Đơn vị phát triển:** Edunext-FE (https://github.com/broamstuck-cybr)
+- **Liên hệ hỗ trợ:** https://github.com/broamstuck-cybr/Edunext_fe
+- **Bản quyền sở hữu trí tuệ:** © 2026 Edunext-FE. Mọi hành vi sao chép trái phép đều bị nghiêm cấm.
+

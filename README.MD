@@ -8,7 +8,7 @@ Dự án phát triển client hỗ trợ học tập và nghiên cứu kiến tr
 
 ## 🚀 Các phiên bản trong kho lưu trữ
 
-### 1. `edunext_ULTRA.user.js` (Phiên bản Ultra mới nhất v3.3.6) ⭐ KHUYÊN DÙNG
+### 1. `edunext_ULTRA.user.js` (Phiên bản Ultra mới nhất v3.9.0) ⭐ KHUYÊN DÙNG
 - **Bản phát hành chính thức mới nhất** thay thế cho các nhánh cũ.
 - Tích hợp **React Fiber Ground Truth**, **Canvas #2 Active Lock** và **Anti-Freeze FSM**.
 - Hỗ trợ giải đề thông minh qua đa tầng: Kho đề chung GitHub `resourcepack/edunext_bank`, API đa mô hình (Gemini, Claude, GPT, DeepSeek, Groq...) và Cầu nối Cross-Tab Gemini (`gemini.google.com`).
@@ -16,7 +16,7 @@ Dự án phát triển client hỗ trợ học tập và nghiên cứu kiến tr
 - Có bản console kèm theo: `edunext_ULTRA_console.js`.
 
 ### 2. `eDuNeXt_FoRk_Prenium_V1.js`
-- Bản nâng cấp đồng bộ từ lõi `edunext_ULTRA` mới nhất.
+- Bản nâng cấp đồng bộ từ lõi `edunext_ULTRA` mới nhất (v3.9.0).
 - Hỗ trợ đa mô hình, không delay quota, chống đơ và chống treo nền.
 
 ### 3. `eDuNeXt_FoRk_liteV1.0.7.js` (Bản lite tiền nhiệm)

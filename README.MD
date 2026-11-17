@@ -1,43 +1,43 @@
-# EdUNeT_FoRk — Edunext-FE Edition
+# EdUNeT_FoRk
 
-Dự án phát triển client hỗ trợ học tập và nghiên cứu kiến trúc EduNext FPT của **Edunext-FE**.
+Chỗ tôi để các bản EduNext cũ và bản đang thử. Đây không phải bản nên cài.
 
-> ⚠️ **Tuyên bố trách nhiệm:** Script phục vụ mục đích nghiên cứu, học thuật, phân tích hành vi và tối ưu hóa trải nghiệm giao diện người dùng. Người dùng tự chịu trách nhiệm về việc tuân thủ quy chế học tập và nội quy nhà trường.
+Bản ổn định và có tài liệu đầy đủ nằm ở repo [Edunext_fe](https://github.com/broamstuck-cybr/Edunext_fe).
 
----
+## Tệp trong repo
 
-## 🚀 Các phiên bản trong kho lưu trữ
+| Tệp | Tình trạng |
+|---|---|
+| `edunext_ULTRA.user.js` | Bản mới nhất trong repo này, nối sang tab Gemini đang mở |
+| `edunext_ULTRA_console.js` | Cùng bản trên, dạng dán vào DevTools Console |
+| `eDuNeXt_FoRk_Prenium_V1.js` | Bản cũ, giữ lại để tham khảo, không còn cập nhật |
+| `eDuNeXt_FoRk_liteV1.0.7.js` | Bản đầu tiên, chỉ để xem lại |
 
-### 1. `edunext_ULTRA.user.js` (Phiên bản Ultra mới nhất v3.9.0) ⭐ KHUYÊN DÙNG
-- **Bản phát hành chính thức mới nhất** thay thế cho các nhánh cũ.
-- Tích hợp **React Fiber Ground Truth**, **Canvas #2 Active Lock** và **Anti-Freeze FSM**.
-- Hỗ trợ giải đề thông minh qua đa tầng: Kho đề chung GitHub `resourcepack/edunext_bank`, API đa mô hình (Gemini, Claude, GPT, DeepSeek, Groq...) và Cầu nối Cross-Tab Gemini (`gemini.google.com`).
-- Mở khóa thao tác bàn phím, tự động trích xuất đề bài dạng văn bản, ảnh và canvas.
-- Có bản console kèm theo: `edunext_ULTRA_console.js`.
+## Nó làm gì
 
-### 2. `eDuNeXt_FoRk_Prenium_V1.js`
-- Bản nâng cấp đồng bộ từ lõi `edunext_ULTRA` mới nhất (v3.9.0).
-- Hỗ trợ đa mô hình, không delay quota, chống đơ và chống treo nền.
+- Đọc đề trong bài học trên EduNext, kể cả đề là ảnh vẽ trên canvas.
+- Chuyển đề sang một tab `gemini.google.com` đang mở, đọc câu trả lời từ tab đó, hoặc gọi API bằng key bạn dán vào.
+- Gõ câu trả lời vào ô soạn thảo và bấm nộp, sau đó đọc phản hồi của hệ thống.
+- Ghi từng bước ra console để bạn theo dõi và dừng khi cần.
 
-### 3. `eDuNeXt_FoRk_liteV1.0.7.js` (Bản lite tiền nhiệm)
-- Phím tắt hệ thống: **Ctrl + E** để ẩn/hiện giao diện chạy ngầm.
+## Cài đặt
 
----
+1. Cài Tampermonkey hoặc Violentmonkey, bật Developer Mode trong trang quản lý tiện ích.
+2. Mở `edunext_ULTRA.user.js`, bấm **Raw**, bấm **Install**.
+3. Vào EduNext (`fsc-edunext.fpt.edu.vn` hoặc `edunext.fpt.edu.vn`), mở một bài học.
+4. Bấm `Ctrl + E` để mở bảng điều khiển.
 
-## ⌨️ Hướng dẫn cài đặt & Phím tắt
+Phím tắt: `Ctrl + E` mở/đóng bảng, `Ctrl + Shift + X` dừng khẩn cấp, `Esc` đóng bảng đang mở.
 
-1. Cài tiện ích **Tampermonkey** hoặc **Violentmonkey** trên trình duyệt (Brave, Chrome, Firefox, Edge).
-2. Bật chế độ nhà phát triển (**Developer mode**) trong phần Quản lý tiện ích mở rộng (`chrome://extensions`).
-3. Mở tệp `edunext_ULTRA.user.js` (hoặc nhấn nút Raw) → Nhấn **Install / Cài đặt**.
-4. Truy cập trang web EduNext FPT (`https://fsc-edunext.fpt.edu.vn` hoặc `https://edunext.fpt.edu.vn`).
-5. **Phím tắt điều khiển:**
-   - `Ctrl + E`: Ẩn/hiện bảng điều khiển giao diện chạy ngầm.
-   - `Ctrl + Shift + X` hoặc nhấn đúp `Esc`: Dừng khẩn cấp mọi tiến trình đang chạy.
+## Giới hạn
 
----
+- Bản trong repo này cũ hơn bản ở `Edunext_fe`, có lỗi đã sửa ở đó mà chưa sửa ở đây.
+- Cách nối sang tab Gemini phụ thuộc giao diện Gemini, Google đổi là hỏng.
+- Đề là video hoặc cần thao tác ngoài khung chat thì script dừng, không tự xử lý.
 
-## 📞 Thông tin & Bản quyền
-- **Đơn vị phát triển:** Edunext-FE (https://github.com/broamstuck-cybr)
-- **Liên hệ hỗ trợ:** https://github.com/broamstuck-cybr/Edunext_fe
-- **Bản quyền sở hữu trí tuệ:** © 2026 Edunext-FE. Mọi hành vi sao chép trái phép đều bị nghiêm cấm.
+## Liên hệ
 
+- Tác giả: Trần Anh Tuấn
+- Facebook: <https://github.com/broamstuck-cybr/Edunext_fe>
+
+Tôi không bán các tệp này và không nhận làm bài hộ. Dùng thế nào là việc của bạn, kèm theo quy chế của nhà trường.

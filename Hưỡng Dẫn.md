@@ -1,32 +1,37 @@
-**Tải extension tampermonkey hoặc tampermonkey beta **
-- Bấm vào tampermonkey nhấm create a new script
-- Xóa hết và sau đó paste code vào
-- Nhần vào file nhấn save 
-( Nhớ bật developer mode trên google và  brave chỗ extension)
-Done :D
-Tích hợp api : 
-- Tìm api google ( gemini )
-- đăng nhập tài khoản 
-+ Create a api key ( tạo api key ) 
-[Nên tạo tầm 6 key api để đảm bảo chất lượng và độ ổn định của script] ( tất nhiên cái gì ngon không phải là miễn phí và dễ xài ) 
-[ có thể dùng acc clone để tạo nhiều api , bản lite tối đa 10 api ] ( bản pre dành riêng cho developer ) 
-- Nếu là tính năng bridge thì mở 1 tab gemini bên cạnh , tạo 2 window rồi bật on cho nó chạybật
-( Nên sử dụng api , tốt hơn bản bridge ( bridge đang working on update ) 
+# Hướng dẫn cài
 
-Góc hỏi đáp :
-- Vì sao script đang giải bài lại báo lỗi không giải tiếp được ?
-+ Lý do và vì api , ví dụ đi hỏi chat gpt chat vs chat gpt thì có giới hạn cuộc trò chuyện ( ko có gì là miễn phí ) thì api hoạt động cũng giống như vậy,có giới hạn ,token riêng
-- chưa kể đôi khi api bị lag nx do nhiều người gửi yêu cầu , vs chat cùng lúc
-- Vì sao không hiện script và gui của script khi paste và tampermonkey ?
-+ vì đó là cơ chế bảo mật của wed ( tầm trở về năm 2017 thì chỉ với vài dòng code thì bạn có thể ddos 1 server raid và làm nát,disconet của server )
-+ trở về 2026 , đây là cơ chế làm thêm bảo mật wed , muốn chạy script với tampermonkey bạn phải
-  - bật developer mode ( chế độ nhà phát triển trong extension ) ( hỏi chat gpt đi)
-  - chrome://extensions/ ( brave , firefox , edge cứ thể mà triển)
+## 1. Cài Tampermonkey
 
-Cảm giác giải bài tập tầm 1 -2 bài là cạn token? chờ cooldown api? 
-+ Chính xác đó là lý do vì sao 10 api được ra đời ( nên sử dụng 10 api thế nào cho hợp lý?)
-+ Nếu api tạo ra cùng 1 acc thì chỉ cần 1 api hết thì acc đó sẽ hết, api đến từ acc đó sẽ hết và sẽ phải chờ cooldown nên nhiều api đến từ acc khác nhau càng tốt đảm bảo thời gian sử dụng lâu hơn ( đương nhiên về sau có gemini wed, thời gian hỏi bên wed sẽ lâu hơn , nma đang bypass bên  gemini :V)
-+ Nên tạo api theo công thức 4-4-2 ( 4 api acc chính - 4 api acc phụ 2 api acc phụ)
-  
- ** Đừng bao giờ có ý tưởng chỉnh sửa code hoặc là ngược lại ** 
- + Có lỗi gì ,feedback bên trang cá nhân 
+- Cài Tampermonkey (bản thường hoặc bản beta) trên trình duyệt.
+- Bật Developer Mode trong trang quản lý tiện ích (`chrome://extensions` với Chrome, `brave://extensions` với Brave).
+- Bấm vào icon Tampermonkey, chọn **Create a new script**.
+- Xoá hết nội dung mặc định, dán code vào, bấm **Save**.
+
+Mở EduNext, nếu không thấy bảng điều khiển thì bấm `Ctrl + E`.
+
+## 2. Lấy API key
+
+- Vào Google AI Studio, đăng nhập tài khoản Google.
+- Tạo một API key, dán vào ô trong bảng điều khiển của script.
+
+Tài khoản miễn phí có hạn mức theo ngày và theo phút. Key tạo từ cùng một tài khoản dùng chung hạn mức đó, nên tạo thêm key không làm tăng hạn mức. Hết hạn mức thì phải chờ, script sẽ ghi lý do vào console.
+
+Cách thứ hai là mở một tab `gemini.google.com` song song để script chuyển đề sang đó. Cách này không cần key, nhưng phụ thuộc giao diện Gemini nên dễ hỏng hơn khi Google cập nhật.
+
+## 3. Câu hỏi hay gặp
+
+**Đang giải thì dừng, báo lỗi?**
+
+Phần lớn là hết hạn mức hoặc bị chặn tạm thời từ phía nhà cung cấp AI, không phải lỗi script. Đợi vài phút rồi chạy lại. Nếu vẫn lỗi, mở console trong script xem dòng cuối cùng ghi gì.
+
+**Dán code vào Tampermonkey mà không thấy gì?**
+
+Kiểm tra Developer Mode đã bật chưa. Sau đó bấm `Ctrl + E`. Nếu trang không nhận phím, thử `Ctrl + Shift + E`.
+
+**Dùng bao nhiêu key là đủ?**
+
+Một key là đủ cho nhu cầu bình thường. Muốn dùng nhiều key thì phải có nhiều tài khoản riêng, mỗi tài khoản có hạn mức riêng.
+
+## 4. Góp ý
+
+Lỗi hoặc góp ý: mở issue trong repo, hoặc nhắn qua Facebook ở phần liên hệ trong README.

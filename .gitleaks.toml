@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Legacy non-secret UI signature constant"
+regexes = ['''QlJPQU1TVFVDS19PWF9TVFVESU9fMjAyNg==''']
